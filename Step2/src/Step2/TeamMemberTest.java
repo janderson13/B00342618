@@ -34,19 +34,25 @@ public class TeamMemberTest {
                     System.exit(0);
                     
                 case 1:
-                	
                     memberName = Input.getString("Member Name: ");
+                    if (memberName.length() <=0) {
+                    	System.out.println("Please enter a member name");
+                    	break;}
                     empNumber = Input.getInteger("Employee Number: ");
+                    if (empNumber <0 || empNumber > 999999) {
+                    	System.out.println("Please enter the correct date format");
+                    	break;}
                     division = Input.getString("Division: ");
+                    if (division.length() <=0) {
+                    	System.out.println("Please enter a division");
+                    	break;}
                     id = id+ 1;
                     memberArray[0]= id;
                     memberArray[1] = "   " + memberName;
                     memberArray[2] = "                   " +empNumber;
                     memberArray[3] = "                       " +division;
-                    //System.out.println("test   " + Arrays.toString(memberArray));
-                    //System.out.println(array.size());
-                    //System.out.println(Arrays.toString(memberArray));
                     array.addMember(Arrays.toString(memberArray));
+                    System.out.println("Member add to system");
                     
                     break;
                 	
@@ -61,19 +67,24 @@ public class TeamMemberTest {
                     break;
                 	
                 case 3:
-                	index = Input.getInteger("Member ID: ");
-                	array.remove(index);
-                		break;
-                	
-                case 4:
                     if (array.size()<=0)
                         
                         System.out.println("There are no members in the system");
                       else;
-                           array.printElements();
-                           index = Input.getInteger("Member ID: ");
-                           //System.out.println(array[index]);
-                           array.getMember(index);
+                		index = Input.getInteger("Member ID: ");
+                		array.remove(index);
+                	break;
+                	
+                case 4:
+                    if (array.size()<1) {
+                        
+                        System.out.println("There are no members in the system");}
+                    
+                      else;
+                      	array.printElements();
+                        index = Input.getInteger("Member ID: ");
+                       //System.out.println(array[index]);
+                        array.getMember(index);
 
                     break;
                 default:

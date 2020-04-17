@@ -12,8 +12,10 @@ public class CompanyTest{
     	ArrayList<Company> projectArray = new ArrayList<Company>();
         String projectName;
         Integer startDate, endDate;
+        String startDateString, endDateString;
         Integer option = 0;
         Integer id = 0;
+        Integer checkStart, checkEnd;
         
         do{ 
         	try {
@@ -38,15 +40,29 @@ public class CompanyTest{
                 case 1:
                 	
                     projectName = Input.getString("Project Name: ");
-                    startDate = Input.getInteger("Projected Start Date(dd/MM/YY): ");
-                    endDate = Input.getInteger("Projected End Date(dd/MM/YY): ");
+                    if (projectName.length() <=0) {
+                    	System.out.println("Please enter a project name");
+                    	break;
+                    }
+                    startDate = Input.getInteger("Projected Start Date(ddMMyy): ");
+                    startDateString = startDate.toString();
+                    if (startDateString.length() != 6) {
+                    	System.out.println("Please enter the correct date format");
+                    	break;
+                    }
+                    endDate = Input.getInteger("Projected End Date(ddMMyy): ");
+                    endDateString = endDate.toString();
+                    if (endDateString.length() != 6) {
+                    	System.out.println("Please enter the correct date format");
+                    	break;
+                    	}
+                    
                     id = id+ 1;
-                    Company projectDetails = new Company(projectName, startDate, endDate);
+                    Company projectDetails = new Company(projectName, startDateString, endDateString);
                     projectArray.add((projectDetails));
+                    System.out.println("Project added to system");
                     break;
                 	
-                	//catch(NumberFormatException error) {
-                    	//System.out.println("Please enter a number"); 
                 	
                 case 2:
                 	int projectSearch = 0;
@@ -82,6 +98,7 @@ public class CompanyTest{
                         System.out.println("There are no projects in the system.");
                     }
                     else{
+                    	
                         System.out.format("%-10s%-25s%-15s%-15s\n","ID",  "Project Name", "Start Date", "End Date");
                         
                     }

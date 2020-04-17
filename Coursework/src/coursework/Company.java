@@ -4,19 +4,19 @@ import java.util.Comparator;
 
 public class Company{
     private String projectName;
-    private Integer startDate;
-    private Integer endDate;
+    private String startDateString;
+    private String endDateString;
   
-    public Company(String projectName,  Integer startDate, Integer endDate){
+    public Company(String projectName,  String startDateString, String endDateString){
     	this.projectName = projectName;
-        this.startDate = startDate;
-        this.endDate = endDate; 
+        this.startDateString = startDateString;
+        this.endDateString = endDateString; 
         
     }	
     public String toString() {
     	String projectDetails = new String();
     	
-    	projectDetails = String.format("%-25s%-15s%-15s\n", this.projectName, this.startDate, this.endDate);
+    	projectDetails = String.format("%-25s%-15s%-15s\n", this.projectName, this.startDateString, this.endDateString);
     	return projectDetails; 
     }
     public String getName() {

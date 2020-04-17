@@ -28,9 +28,12 @@ public class TeamMember {
         size++;
     }
 
-	public Object getMember(int index) {
+	public String[] getMember(int index) {
+		System.out.println("kinda works");
         System.out.println(array[index]);
-		return array[index];	
+        return array;
+		
+			
 	}
     
     public void remove(int index){
